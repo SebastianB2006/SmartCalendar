@@ -1,20 +1,34 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {initializeApp} from 'firebase/app';
+import {initializeApp, getApps, getApp} from 'firebase/app';
 import {firebaseConfig}from '../../firebaseConfig';
-//implementarea firestore aici
+import{Calendar} from 'react-native-calendars';
 
-const app = initializeApp(firebaseConfig);
+//initializare firebase
+const app = getApps().length == 0 ? initializeApp(firebaseConfig) : getApp();
+
 export default function App()
 {
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Alege o data</Text>
 
-            {/* chenarul placeholder pentru viitorul calendar */}
             <View style={styles.calendarBox}>
-                <Text style={styles.calendarText}>Aici va fi randat calendarul</Text>
-            </View>    
+              <Calendar
+                theme={{
+                  backgroundColor:'#1e1e2e',
+                  calendarBackground: '#313244',
+                  textSectionTitleColor: '#a6adc8',
+                  selectedDayBackgroundColor: '#89b4fa',
+                  selectedDayTextColor: '#1e1e2e',
+                  todayTextColor: '#89b4fa',
+                  dayTextColor: '#cdd6f4',
+                  textDisabledColor: '#585b70',
+                  monthTextColor: '#cdd6f4',
+                  arrowColor: '#89b4fa',
+                }}
+              />
+            </View>  
         </View>
     );
 
@@ -36,8 +50,9 @@ const styles = StyleSheet.create({
     calendarBox:{
         width:320,
         height:320,
-        borderWidth:2,
-        borderColor:'#89b4fa',
+        borderWidth:1,
+        overflow:'hidden',
+        borderColor:'#45475a',
         borderStyle:'dashed',
         borderRadius:12,
         backgroundColor:'#323244',
