@@ -6,4 +6,4 @@ export const firebaseConfig = {
   storageBucket: "...",
   messagingSenderId: "...",
   appId: "..."
-};
+}; 
