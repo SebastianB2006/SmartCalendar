@@ -80,7 +80,7 @@ export default function App()
 
             <View style = {styles.eventBox}>
                 <Text style={styles.dateLabel}>
-                    {selectedDate ? 'Data selectata:${selectedDate}' : 'Nicio data selectata'}
+                    {selectedDate ? 'Data selectata:' + selectedDate : 'Nicio data selectata'}
                 </Text>
 
                 <TextInput
