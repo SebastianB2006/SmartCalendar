@@ -1,56 +1,48 @@
-# Welcome to your Expo app 👋
+# 📅 Smart Calendar
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a mobile application built with [React Native](https://reactnative.dev/), [Expo](https://expo.dev/), and Firebase Firestore. It provides an interactive calendar interface where users can select dates and save daily events directly to a cloud database.
 
-## Get started
+## 🚀 Getting Started
 
-1. Install dependencies
+Follow these steps to set up and run the project locally.
 
-   ```bash
-   npm install
-   ```
+### 1. Clone the repository and install dependencies
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Download the code and install all the required packages (including `react-native-calendars` and `firebase`):
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+### 2. ⚠️ Firebase Configuration (CRITICAL STEP)
 
-### Other setup steps
+For security reasons, the Firebase API keys are **not** included in this repository. If you try to run the app right now, it will crash because it cannot find the configuration file.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+To fix this, you must connect your own Firebase project:
 
-## Learn more
+1. Create a new file named `firebaseConfig.js` in the root folder of the project (next to `package.json` and `app.json`).
+2. Add your own Firebase credentials inside it, using the following format:
 
-To learn more about developing your project with Expo, look at the following resources:
+```javascript
+// firebaseConfig.js
+export const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+```
+*(Make sure Firestore Database is enabled in your Firebase Console and the security rules allow reading/writing).*
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 3. Start the app
 
-## Join the community
+Once the Firebase config is ready, start the development server:
 
-Join our community of developers creating universal apps.
+```bash
+npx expo start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Press **`w`** in the terminal to open the app in your web browser.
+- Use the **Expo Go** app on your iOS or Android device to scan the QR code and test on your phone.
