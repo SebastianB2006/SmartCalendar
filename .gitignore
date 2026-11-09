@@ -45,3 +45,4 @@ example
 # Configurații sensibile
 firebaseConfig.js
 .env
+ 
