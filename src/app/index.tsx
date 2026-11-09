@@ -49,15 +49,11 @@ const styles = StyleSheet.create({
     },
     calendarBox:{
         width:320,
-        height:320,
         borderWidth:1,
         overflow:'hidden',
-        borderColor:'#45475a',
-        borderStyle:'dashed',
         borderRadius:12,
         backgroundColor:'#323244',
-        alignItems:'center',
-        justifyContent:'center',
+        borderColor:'#45475a',
     },
     calendarText: {
         color:'#a6adc8',
